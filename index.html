@@ -1,59 +1,109 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<style>
-button {
-  padding: 16px 32px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 12px; /* makes corners rounded */
-  border: none; /* optional: removes border */
-  background-color: #4CAF50; /* optional: green button */
-  color: white; /* optional: text color */
-}
-button:hover {
-  background-color: #45a049; /* optional: hover effect */
-}
-</style>
-</head>
-<body>
-<button onclick="window.location.href='https://docs.google.com/spreadsheets/d/1MISMDIMAF2Xi1rM4oCqnk5CEFn4QEAaN51jl5Rlu7J0/edit'">
-Directory
-</button>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Button Grid</title>
 <style>
-body {
-  background-color: #1e1e1e; /* dark background */
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-button {
-  padding: 16px 32px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 12px;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-}
+  body {
+    font-family: Calibri, sans-serif;
+    padding: 20px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 40px);
+    gap: 3px;
+    max-width: 1100px;
+  }
+  .header {
+    font-weight: bold;
+    text-align: center;
+    padding: 6px 0;
+    pointer-events: none;
+    font-family: Calibri, sans-serif;
+  }
+  button {
+    padding: 2px 4px;
+    min-height: 24px;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: Calibri, sans-serif;
+    transition: all 0.2s ease;
+  }
 </style>
 </head>
 <body>
-<button onclick="window.location.href='https://docs.google.com/spreadsheets/d/1MISMDIMAF2Xi1rM4oCqnk5CEFn4QEAaN51jl5Rlu7J0/edit'">
-Directory
-</button>
+
+<div class="grid">
+  <div class="header">MT</div><div class="header">FIL</div><div class="header">ENG</div>
+  <div class="header">MATH</div><div class="header">SCI</div><div class="header">AP</div>
+  <div class="header">EPP/<br>TLE</div><div class="header">EsP</div><div class="header">M</div>
+  <div class="header">A</div><div class="header">PE</div><div class="header">H</div>
+</div>
+
+<div class="grid" id="buttons"></div>
+
+<script>
+  const buttonNames = [
+    "7C","7C","7C","7C","7C","7C","7C","7C","7C","7C","7C","7C",
+    "7E","7E","7E","7E","7E","7E","7E","7E","7E","7E","7E","7E",
+    "7G","7G","7G","7G","7G","7G","7G","7G","7G","7G","7G","7G",
+    "8C","8C","8C","8C","8C","8C","8C","8C","8C","8C","8C","8C",
+    "8E","8E","8E","8E","8E","8E","8E","8E","8E","8E","8E","8E",
+    "8G","8G","8G","8G","8G","8G","8G","8G","8G","8G","8G","8G",
+    "9C","9C","9C","9C","9C","9C","9C","9C","9C","9C","9C","9C",
+    "9E","9E","9E","9E","9E","9E","9E","9E","9E","9E","9E","9E",
+    "9G","9G","9G","9G","9G","9G","9G","9G","9G","9G","9G","9G",
+    "10C","10C","10C","10C","10C","10C","10C","10C","10C","10C","10C","10C",
+    "10E","10E","10E","10E","10E","10E","10E","10E","10E","10E","10E","10E",
+    "10G","10G","10G","10G","10G","10G","10G","10G","10G","10G","10G","10G","10G",
+  ];
+
+  const grayButtons = ["7C", "10C"];
+
+  const links = {
+    "7C": "https://www.facebook.com/inspiredbudget"
+  };
+
+  const container = document.getElementById("buttons");
+
+  buttonNames.forEach(name => {
+    const btn = document.createElement("button");
+    btn.textContent = name;
+
+    btn.style.color = grayButtons.includes(name) ? "gray" : "black";
+
+    if (links[name]) {
+      btn.addEventListener("click", () => {
+        window.open(links[name], "_blank");
+      });
+    }
+
+    btn.addEventListener("mouseenter", () => {
+      if (grayButtons.includes(name)) {
+        btn.style.background = "gray";
+        btn.style.border = "2px solid gray";
+      } else {
+        btn.style.background = "#3366FF";
+        btn.style.border = "2px solid #3366FF";
+      }
+      btn.style.color = "white";
+      btn.style.transform = "translateY(-2px)";
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.background = "#f5f5f5";
+      btn.style.border = "1px solid #ccc";
+      btn.style.color = grayButtons.includes(name) ? "gray" : "black";
+      btn.style.transform = "translateY(0)";
+    });
+
+    container.appendChild(btn);
+  });
+</script>
+
 </body>
 </html>

@@ -1,108 +1,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>TLGA Portal</title>
+  <meta charset="UTF-8">
+  <title>PIS Portal</title>
+  <!-- Favicon from Google Drive -->
+  <link rel="icon" href="https://drive.google.com/uc?export=view&id=1GgUchoO5QFIsYLSN-2rtO7v_3QJFpY_B" type="image/png">
 <style>
-  body {
-    font-family: Calibri, sans-serif;
-    padding: 20px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(12, 40px);
-    gap: 3px;
-    max-width: 1100px;
-  }
-  .header {
-    font-weight: bold;
-    text-align: center;
-    padding: 6px 0;
-    pointer-events: none;
-    font-family: Calibri, sans-serif;
-  }
-  button {
-    padding: 2px 4px;
-    min-height: 24px;
-    font-size: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background: #f5f5f5;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: Calibri, sans-serif;
-    transition: all 0.2s ease;
-  }
+body {
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+  font-family: Calibri, sans-serif;
+  color: #222;
+}
+
+/* header */
+.header {
+  padding: 20px 40px 10px 40px;
+  color: #222;
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* header line */
+.header-line {
+  height: 1px;
+  background-color: #d0d0d0;
+  margin: 0 40px 40px 40px;
+}
+
+/* content */
+.content {
+  padding: 0 40px 40px 40px;
+}
+
+/* title */
+.title-container {
+  color: #444;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+/* button container */
+.button-bg {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+button {
+  padding: 5px 22px;
+  font-size: 18px;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid #dcdcdc;
+  background-color: #ffffff;
+  color: #222;
+  display: block;
+  width: 300px;
+  text-align: left;
+  margin-bottom: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+button:hover {
+  background-color: #3366FF;
+  color: #ffffff;
+}
+
+button:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* footer */
+.footer-container {
+  background-color: #f5f6fa;
+  position: fixed;
+  bottom: 3px;
+  left: 0;    
+  width: 100%;
+}
+
+.footer-line {
+  height: 1px;
+  background-color: #d0d0d0;
+  margin: 0 40px 8px 40px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 40px;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer img {
+  height: 25px;
+}
 </style>
 </head>
 <body>
 
-<div class="grid">
-  <div class="header">MT</div><div class="header">FIL</div><div class="header">ENG</div>
-  <div class="header">MATH</div><div class="header">SCI</div><div class="header">AP</div>
-  <div class="header">EPP/<br>TLE</div><div class="header">EsP</div><div class="header">M</div>
-  <div class="header">A</div><div class="header">PE</div><div class="header">H</div>
+<div class="header">
+  <span>PANGAO INTEGRATED SCHOOL PORTAL</span>
+  <span id="clock" style="font-size:16px; font-weight:normal;"></span>
+</div>
+<div class="header-line"></div>
+
+<div class="content">
+  <div class="title-container">11-ONYX</div>
+  <div class="button-bg">
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1MISMDIMAF2Xi1rM4oCqnk5CEFn4QEAaN51jl5Rlu7J0/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=529&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Students
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1TsxCXZWOcS8Kvwu6kSMDu6hUv-UuEukCFvJVaodR06I/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=3Kt4e0zLZcUG&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Observed values
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1zZ4YuoHmjvdLoV4OQ_pS9jm5JOWRvzIP3n5KN6eqrzY/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=VghVCIlysYfn&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Rating
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1FmhR14o7U1ry6ED_nDesNWeGR3_i08JlbGsme6-QhsQ/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=WUxTFfzpqN59&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Ranking
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1fieZuaVEU2VXt4BAgl3yaSEi4s06uyAExZWegBqJNBY/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=icPKYXq1lGwq&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Report card
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1Lai8vLZT7-lQ_r42zpUa8G_Y_xVqFwGcLQDb2yRxFiw/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=Dgs9mh1dpWIe&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      SF1
+    </button>
+
+    <button onclick="window.open('https://docs.google.com/spreadsheets/d/1M6q_kE5Sjb2KhetCs-JXfEywMgRU7SPxwAC2agUn1OU/edit','_blank')">
+      <img src="https://img.icons8.com/?size=100&id=Dgs9mh1dpWIe&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      SF10
+    </button>
+
+    <button>
+      <img src="https://img.icons8.com/?size=100&id=MTu57mgtjlKe&format=png&color=000000" style="height:25px;vertical-align:middle;margin-right:8px;">
+      Certificates
+    </button>
+
+  </div>
 </div>
 
-<div class="grid" id="buttons"></div>
+<div class="footer-container">
+  <div class="footer-line"></div>
+  <div class="footer">
+    <a href="https://www.facebook.com/charliemen.pateno.7" target="_blank">
+      <img src="https://img.icons8.com/?size=100&id=118467&format=png&color=000000">
+    </a>
+    <span>© 2026 Guro Files PH. All rights reserved.</span>
+  </div>
+</div>
 
 <script>
-  const buttonNames = [
-    "7C","7C","7C","7C","7C","7C","7C","7C","7C","7C","7C","7C",
-    "7E","7E","7E","7E","7E","7E","7E","7E","7E","7E","7E","7E",
-    "7G","7G","7G","7G","7G","7G","7G","7G","7G","7G","7G","7G",
-    "8C","8C","8C","8C","8C","8C","8C","8C","8C","8C","8C","8C",
-    "8E","8E","8E","8E","8E","8E","8E","8E","8E","8E","8E","8E",
-    "8G","8G","8G","8G","8G","8G","8G","8G","8G","8G","8G","8G",
-    "9C","9C","9C","9C","9C","9C","9C","9C","9C","9C","9C","9C",
-    "9E","9E","9E","9E","9E","9E","9E","9E","9E","9E","9E","9E",
-    "9G","9G","9G","9G","9G","9G","9G","9G","9G","9G","9G","9G",
-    "10C","10C","10C","10C","10C","10C","10C","10C","10C","10C","10C","10C",
-    "10E","10E","10E","10E","10E","10E","10E","10E","10E","10E","10E","10E",
-    "10G","10G","10G","10G","10G","10G","10G","10G","10G","10G","10G","10G",
-  ];
+function updateClock() {
+  const now = new Date();
+  const options = { month: 'long', day: '2-digit', year: 'numeric' };
+  const dateStr = now.toLocaleDateString('en-US', options);
 
-  const grayButtons = ["7C", "10C"];
+  let hours = now.getHours();
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12 || 12;
 
-  const links = {
-    "7C": "https://www.facebook.com/inspiredbudget"
-  };
-
-  const container = document.getElementById("buttons");
-
-  buttonNames.forEach(name => {
-    const btn = document.createElement("button");
-    btn.textContent = name;
-
-    btn.style.color = grayButtons.includes(name) ? "gray" : "black";
-
-    if (links[name]) {
-      btn.addEventListener("click", () => {
-        window.open(links[name], "_blank");
-      });
-    }
-
-    btn.addEventListener("mouseenter", () => {
-      if (grayButtons.includes(name)) {
-        btn.style.background = "gray";
-        btn.style.border = "2px solid gray";
-      } else {
-        btn.style.background = "#3366FF";
-        btn.style.border = "2px solid #3366FF";
-      }
-      btn.style.color = "white";
-      btn.style.transform = "translateY(-2px)";
-    });
-
-    btn.addEventListener("mouseleave", () => {
-      btn.style.background = "#f5f5f5";
-      btn.style.border = "1px solid #ccc";
-      btn.style.color = grayButtons.includes(name) ? "gray" : "black";
-      btn.style.transform = "translateY(0)";
-    });
-
-    container.appendChild(btn);
-  });
+  document.getElementById('clock').textContent =
+    `${dateStr} | ${hours}:${minutes}:${seconds} ${ampm}`;
+}
+setInterval(updateClock,1000);
+updateClock();
 </script>
 
 </body>
